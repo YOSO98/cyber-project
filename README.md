@@ -52,7 +52,7 @@ cybersécurité informatique et industrielle dans un cadre académique.
 └───────────────────────────────────┬─────────────────────────────────┘
                                     │
                           ┌──────────────────┐
-                          │ Routeur / Box ISP │
+                          │ Routeur / Box ISP │ 
                           └──────────────────┘
                                     │
                           ┌──────────────────┐
