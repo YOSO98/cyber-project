@@ -45,3 +45,82 @@ Ce projet est strictement pédagogique :
 ## 🚀 Finalité pédagogique
 Ce dépôt vise à démontrer une compréhension concrète des enjeux de
 cybersécurité informatique et industrielle dans un cadre académique.
+
+## Architecture IT et industrielle
+┌─────────────────────────────────────────────────────────────────────┐
+│                              INTERNET                               │
+└───────────────────────────────────┬─────────────────────────────────┘
+                                    │
+                          ┌──────────────────┐
+                          │ Routeur / Box ISP │
+                          └──────────────────┘
+                                    │
+                          ┌──────────────────┐
+                          │   Pare-feu       │
+                          │ (sécurité IT)    │
+                          └──────────────────┘
+                                    │
+        ┌───────────────────────────┴───────────────────────────┐
+        │                         ZONE IT                         │
+        │                                                         │
+        │   ┌──────────────┐      ┌─────────────────────────┐  │
+        │   │ Postes       │      │ Serveurs internes        │  │
+        │   │ utilisateurs │      │                         │  │
+        │   │ PC / Laptop  │      │ - Annuaire              │  │
+        │   └──────────────┘      │ - Messagerie            │  │
+        │           │              │ - Fichiers             │  │
+        │           │              └─────────────────────────┘  │
+        │   ┌──────────────┐                                     │
+        │   │ Réseau LAN   │  (Ethernet / Wi-Fi)                 │
+        │   └──────────────┘                                     │
+        │                                                         │
+        └───────────────────────────┬───────────────────────────┘
+                                    │
+                        ┌────────────────────────┐
+                        │  Pare-feu IT / OT       │
+                        │  (filtrage strict)      │
+                        └────────────────────────┘
+                                    │
+        ┌───────────────────────────┴───────────────────────────┐
+        │                          DMZ                            │
+        │                                                         │
+        │   ┌──────────────────┐     ┌──────────────────────┐ │
+        │   │ Bastion d’accès   │     │ Serveur supervision  │ │
+        │   │ (accès sécurisé)  │     │ Logs / Alertes       │ │
+        │   └──────────────────┘     └──────────────────────┘ │
+        │              │                                      │
+        │   ┌──────────────────┐                               │
+        │   │ Jump Server       │                               │
+        │   │ Accès contrôlé    │                               │
+        │   └──────────────────┘                               │
+        │                                                         │
+        └───────────────────────────┬───────────────────────────┘
+                                    │
+                        ┌────────────────────────┐
+                        │  Pare-feu industriel    │
+                        │  (protection OT)        │
+                        └────────────────────────┘
+                                    │
+        ┌───────────────────────────┴───────────────────────────┐
+        │                         ZONE OT                         │
+        │                                                         │
+        │   ┌──────────────────┐     ┌──────────────────────┐ │
+        │   │ Automates (PLC)   │     │ Supervision          │ │
+        │   │ Industriels       │     │ Industrielle (SCADA)│ │
+        │   └──────────────────┘     └──────────────────────┘ │
+        │              │                                      │
+        │   ┌──────────────────┐                               │
+        │   │ Machines          │                               │
+        │   │ Industrielles     │                               │
+        │   └──────────────────┘                               │
+        │                                                         │
+        │  Réseau industriel isolé                               │
+        │  Priorités : disponibilité et intégrité               │
+        │                                                         │
+        └─────────────────────────────────────────────────────┘
+
+
+Ce schéma illustre une architecture segmentée entre les environnements
+informatiques (IT) et industriels (OT), séparés par une zone intermédiaire (DMZ).
+Cette segmentation permet de limiter les risques de propagation et de protéger
+les systèmes industriels critiques.
