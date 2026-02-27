@@ -1,6 +1,4 @@
 # cyber-project
-# cyber-it-ot
-
 ## 👤 Auteur
 Youssouf Souleyman  
 Étudiant Bac+4/5 – Cybersécurité, DevOps, Cloud
