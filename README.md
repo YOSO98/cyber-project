@@ -47,77 +47,51 @@ Ce dépôt vise à démontrer une compréhension concrète des enjeux de
 cybersécurité informatique et industrielle dans un cadre académique.
 
 ## Architecture IT et industrielle
-┌─────────────────────────────────────────────────────────────────────┐
-│                              INTERNET                               │
-└───────────────────────────────────┬─────────────────────────────────┘
-                                    │
-                          ┌──────────────────┐
-                          │ Routeur / Box ISP │ 
-                          └──────────────────┘
-                                    │
-                          ┌──────────────────┐
-                          │   Pare-feu       │
-                          │ (sécurité IT)    │
-                          └──────────────────┘
-                                    │
-        ┌───────────────────────────┴───────────────────────────┐
-        │                         ZONE IT                         │
-        │                                                         │
-        │   ┌──────────────┐      ┌─────────────────────────┐  │
-        │   │ Postes       │      │ Serveurs internes        │  │
-        │   │ utilisateurs │      │                         │  │
-        │   │ PC / Laptop  │      │ - Annuaire              │  │
-        │   └──────────────┘      │ - Messagerie            │  │
-        │           │              │ - Fichiers             │  │
-        │           │              └─────────────────────────┘  │
-        │   ┌──────────────┐                                     │
-        │   │ Réseau LAN   │  (Ethernet / Wi-Fi)                 │
-        │   └──────────────┘                                     │
-        │                                                         │
-        └───────────────────────────┬───────────────────────────┘
-                                    │
-                        ┌────────────────────────┐
-                        │  Pare-feu IT / OT       │
-                        │  (filtrage strict)      │
-                        └────────────────────────┘
-                                    │
-        ┌───────────────────────────┴───────────────────────────┐
-        │                          DMZ                            │
-        │                                                         │
-        │   ┌──────────────────┐     ┌──────────────────────┐ │
-        │   │ Bastion d’accès   │     │ Serveur supervision  │ │
-        │   │ (accès sécurisé)  │     │ Logs / Alertes       │ │
-        │   └──────────────────┘     └──────────────────────┘ │
-        │              │                                      │
-        │   ┌──────────────────┐                               │
-        │   │ Jump Server       │                               │
-        │   │ Accès contrôlé    │                               │
-        │   └──────────────────┘                               │
-        │                                                         │
-        └───────────────────────────┬───────────────────────────┘
-                                    │
-                        ┌────────────────────────┐
-                        │  Pare-feu industriel    │
-                        │  (protection OT)        │
-                        └────────────────────────┘
-                                    │
-        ┌───────────────────────────┴───────────────────────────┐
-        │                         ZONE OT                         │
-        │                                                         │
-        │   ┌──────────────────┐     ┌──────────────────────┐ │
-        │   │ Automates (PLC)   │     │ Supervision          │ │
-        │   │ Industriels       │     │ Industrielle (SCADA)│ │
-        │   └──────────────────┘     └──────────────────────┘ │
-        │              │                                      │
-        │   ┌──────────────────┐                               │
-        │   │ Machines          │                               │
-        │   │ Industrielles     │                               │
-        │   └──────────────────┘                               │
-        │                                                         │
-        │  Réseau industriel isolé                               │
-        │  Priorités : disponibilité et intégrité               │
-        │                                                         │
-        └─────────────────────────────────────────────────────┘
+                    INTERNET
+                        |
+                [ Routeur / Box ISP ]
+                        |
+                    [ Pare-feu ]
+                        |
+        ================= ZONE IT =================
+        |                                        |
+        |  Postes utilisateurs (PC / Laptop)    |
+        |          |                             |
+        |      Réseau LAN (Ethernet / Wi-Fi)     |
+        |          |                             |
+        |  Serveurs internes                     |
+        |   - Annuaire                           |
+        |   - Messagerie                         |
+        |   - Fichiers                           |
+        |                                        |
+        ==========================================
+                        |
+                [ Pare-feu IT / OT ]
+                (filtrage strict)
+                        |
+        ================== DMZ ===================
+        |                                        |
+        |  Bastion d’accès (accès sécurisé)      |
+        |  Jump Server (accès contrôlé)          |
+        |  Serveur supervision                   |
+        |   - Logs                               |
+        |   - Alertes                            |
+        |                                        |
+        ==========================================
+                        |
+                [ Pare-feu industriel ]
+                  (protection OT)
+                        |
+        ================= ZONE OT =================
+        |                                        |
+        |  Supervision industrielle (SCADA)      |
+        |          |                             |
+        |     Automates (PLC)                    |
+        |          |                             |
+        |  Machines industrielles                |
+        |                                        |
+        |  Réseau industriel isolé               |
+        |  Priorités : disponibilité, intégrité  |
 
 
 Ce schéma illustre une architecture segmentée entre les environnements
